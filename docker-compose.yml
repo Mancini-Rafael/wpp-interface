@@ -1,0 +1,12 @@
+services:
+  wpp-interface:
+    build: .
+    ports:
+      - "8789:8789"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env
+    command: npx nodemon index.js
+    restart: unless-stopped
